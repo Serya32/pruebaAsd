@@ -1,0 +1,41 @@
+<mat-table matTableFilter [exampleEntity]="filterEntity"
+[filterType]="filterType" [dataSource]="dataSource" class="mat-elevation-z8">
+
+<ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+  </ng-container>
+
+
+  <ng-container matColumnDef="nombreTipo">
+    <mat-header-cell *matHeaderCellDef>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Captain Name" [(ngModel)]="filterEntity.nombreTipo">
+      </mat-form-field>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.nombreTipo}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="serial">
+    <mat-header-cell *matHeaderCellDef>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Serial" [(ngModel)]="filterEntity.serial">
+      </mat-form-field>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.serial}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="fechaCompra">
+    <mat-header-cell *matHeaderCellDef>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="fechaCompra" [(ngModel)]="filterEntity.fechaCompra">
+      </mat-form-field>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.fechaCompra}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+

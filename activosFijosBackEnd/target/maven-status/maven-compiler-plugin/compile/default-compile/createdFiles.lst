@@ -1,0 +1,7 @@
+co\com\activoFijo\services\IActivoFijoService.class
+co\com\activoFijo\dto\ActivoFijoDTO.class
+co\com\activoFijo\repository\ActivoFijoRepository.class
+co\com\activoFijo\services\impl\ActivoFijoService.class
+co\com\activoFijo\ActivoFijo.class
+co\com\activoFijo\controller\ActivoFijoController.class
+co\com\activoFijo\entity\ActivoFijo.class
