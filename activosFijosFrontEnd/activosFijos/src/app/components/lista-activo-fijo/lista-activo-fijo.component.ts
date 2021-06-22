@@ -2,11 +2,13 @@ import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivoFijo } from 'src/app/model/activoFijo';
 import { MatTableFilter } from 'mat-table-filter';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-lista-activo-fijo',
   templateUrl: './lista-activo-fijo.component.html',
   styleUrls: ['./lista-activo-fijo.component.css'],
+  providers: [DatePipe],
   encapsulation: ViewEncapsulation.None
 
 })
@@ -14,14 +16,14 @@ export class ListaActivoFijoComponent implements OnInit {
   filterEntity: SpaceCraft;
   filterType: MatTableFilter;
   dataSource;
+  date;
 
 
-
-  displayedColumns = ['id', 'nombreTipo', 'fechaCompra', 'serial'];
+  displayedColumns = ['id', 'nombreTipo', 'fechaFiltro', 'serial'];
   // dataSource = new MatTableDataSource();
   // 'serial', 'peso','alto','ancho', 'largo', 'valor Compra', 'fhecha Compra', 'numero interno'
   arrHistorial: ActivoFijo[] = [];
-  constructor() { }
+  constructor(public datepipe: DatePipe) { }
 
   ngOnInit(): void {
 
@@ -48,8 +50,10 @@ export class ListaActivoFijoComponent implements OnInit {
     activoObject.alto = 21.1;
     activoObject.ancho = 21.2;
     activoObject.largo = 22.3;
-    activoObject.valorCompra = 22.4;
+    activoObject.valorCompra = 22.4; 
     activoObject.fechaCompra = new Date();
+    this.date=new Date();
+    activoObject.fechaFiltro = this.datepipe.transform(this.date, 'yyyy-MM-dd');
 
     const activoObjects: ActivoFijo = new ActivoFijo();
     activoObjects.id = 2
@@ -65,8 +69,8 @@ export class ListaActivoFijoComponent implements OnInit {
     activoObjects.largo = 22.3;
     activoObjects.valorCompra = 22.4;
     activoObjects.fechaCompra = new Date();
-
-
+    this.date=new Date();
+    activoObjects.fechaFiltro = this.datepipe.transform(this.date, 'yyyy-MM-dd');
 
     this.arrHistorial.push(activoObject);
     this.arrHistorial.push(activoObjects);
@@ -80,23 +84,8 @@ export class ListaActivoFijoComponent implements OnInit {
 export class SpaceCraft {
   nombreTipo: string;
   serial: number;
-  fechaCompra: Date;
+  fechaFiltro: string;
 }
 
-// const SPACECRAFT_DATA: SpaceCraft[] = [
-//   {nombreTipo: 'Endurance', serial: 2, fechaCompra: JSON.stringify(new Date())},
-//   {nombreTipo: 'Enterprise', serial: 2,  fechaCompra: JSON.stringify(new Date())},
-//   {nombreTipo: 'Discovery', serial: 2,  fechaCompra: JSON.stringify(new Date())},
-//   {nombreTipo: 'Enterprise', serial: 2,  fechaCompra: JSON.stringify(new Date())}
-// ];
-
-// $(document).ready(function(){
-//   $("#myInput").on("keyup", function() {
-//     var value = $(this).val().toLowerCase();
-//     $("#myList li").filter(function() {
-//       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-//     });
-//   });
-// });
 
 

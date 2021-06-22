@@ -1,4 +1,3 @@
-import { Data } from "@angular/router";
 
 export class ActivoFijo {
      id: number;
@@ -14,5 +13,10 @@ export class ActivoFijo {
 	 ancho: number;
 	 largo: number;
 	 valorCompra: number;
-	 fechaCompra: Data;
+	 fechaCompra: Date;
+     fechaFiltro: string;
+	 persona: number;
+	 personaSelect: string;
+	 idArea: string;
+	 idCiudad: string;
   }

@@ -10,12 +10,14 @@ import { MatFormFieldModule  } from '@angular/material/form-field';
 import { MatInputModule  } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableFilterModule } from 'mat-table-filter';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CrearActivoFijoComponent } from './components/crear-activo-fijo/crear-activo-fijo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaActivoFijoComponent
+    ListaActivoFijoComponent,
+    CrearActivoFijoComponent
   ],
   imports: [
     BrowserModule,
@@ -26,11 +28,15 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatTableFilterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   exports: [ MatFormFieldModule, MatInputModule ],
 
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ],
 })
 export class AppModule { }
