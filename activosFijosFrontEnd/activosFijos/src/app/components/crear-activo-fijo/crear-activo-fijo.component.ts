@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CODIGO_AREA, CODIGO_PERSONA } from 'src/app/constants';
+import { ActivoFijo } from 'src/app/model/activoFijo';
 import { Area } from 'src/app/model/area';
 import { Ciudad } from 'src/app/model/ciudad';
 import { Persona } from 'src/app/model/persona';
@@ -19,7 +20,14 @@ export class CrearActivoFijoComponent implements OnInit {
   ciudadArea: Ciudad[] = [];
   selectCiudad: Ciudad[] = [];
   arrayPersona: Persona[] = [];
+  activoNuevo: ActivoFijo;
   showArea = false;
+  selectPersona: number;
+  selectArea: number;
+  nombreCiudad: string;
+  nombreArea: string;
+  nombrePersona: string;
+  nombreTipo: string
 
   constructor() { }
 
@@ -72,6 +80,7 @@ export class CrearActivoFijoComponent implements OnInit {
     activoObjects.nombreTipo = 'Esfero';
     this.tipoActivo.push(activoObject)
     this.tipoActivo.push(activoObjects)
+    
   }
 
   areaSeleccionada(){
@@ -117,7 +126,9 @@ export class CrearActivoFijoComponent implements OnInit {
             selectOption.idCiudad = ciudad.idCiudad;
             selectOption.nombreCiudad = ciudad.nombreCiudad;
             this.selectCiudad.push(selectOption)
-            this.ciudad.setValue(ciudad.idCiudad)
+            this.ciudad.setValue(ciudad.idCiudad);
+            this.nombreCiudad = ciudad.nombreCiudad;
+            this.nombreArea = element.nombreArea;
           }
         });
       }
@@ -125,8 +136,13 @@ export class CrearActivoFijoComponent implements OnInit {
   
   }
 
-  setCiudad(code: number) {
-    console.log(this.ciudad.value)
+  getPersona(code: number) {
+    this.arrayPersona.forEach(element => {
+      if (element.idPersona === +code) {
+        console.log(this.tipoNombre.value);
+        this.nombrePersona = element.nombrePersona;
+      }
+    });
   }
   getArea(code: number){
     if (code === CODIGO_AREA) {
@@ -134,14 +150,62 @@ export class CrearActivoFijoComponent implements OnInit {
       this.persona.setValue(null)
       this.area.setValue('');
       this.ciudad.setValue('');
+      this.personaSelect.setValue(null)
+      this.nombrePersona = null;
+      this.selectArea = 1;
+      this.selectPersona = null;
     } else if (code === CODIGO_PERSONA) {
       this.showArea = false;
-      this.area.setValue(null)
+      this.area.setValue(null);
+      this.ciudad.setValue(null);
       this.persona.setValue('');
+      this.selectArea = null;
+      this.selectPersona = 0;
     }
   }
 
   getTipo(code: number){
-    console.log(this.tipoNombre.value)
+    
+    this.tipoActivo.forEach(element => {
+      if (element.idTipo === +code) {
+        console.log(this.tipoNombre.value);
+        this.nombreTipo = element.nombreTipo;
+      }
+    });
+  }
+
+  getDatos(){
+    this.activoNuevo = new ActivoFijo();
+    this.activoNuevo.nombre = this.nombreActivo.value;
+    this.activoNuevo.descripcion = this.descripcion.value;
+    this.activoNuevo.nombreTipo = this.nombreTipo;
+    this.activoNuevo.peso = +this.peso.value;
+    this.activoNuevo.alto = +this.alto.value;
+    this.activoNuevo.largo = +this.largo.value;
+    this.activoNuevo.ancho = +this.ancho.value;
+    this.activoNuevo.numeroInternoInventario = +this.numInventario.value;
+    this.activoNuevo.valorCompra = +this.valCompra.value;
+    this.activoNuevo.fechaCompra = this.fechaCompra.value;
+    this.activoNuevo.persona = this.selectPersona;
+    this.activoNuevo.area = this.selectArea;
+    if (this.personaSelect.value !== null) {
+      this.activoNuevo.idPersona = +this.personaSelect.value;
+    } else {
+      this.activoNuevo.idPersona = this.personaSelect.value;
+    }
+    this.activoNuevo.personaNombre = this.nombrePersona;
+    if (this.area.value !== null) {
+      this.activoNuevo.idArea = +this.area.value;
+    } else {
+      this.activoNuevo.idArea = this.area.value;
+    }
+    this.activoNuevo.areaNombre = this.nombreArea;
+    if (this.ciudad.value !== null) {
+      this.activoNuevo.idCiudad = +this.ciudad.value;
+    } else {
+      this.activoNuevo.idCiudad = this.ciudad.value;
+    }
+    this.activoNuevo.ciudadNombre = this.nombreCiudad;
+    console.log(this.activoNuevo, "respuesta");
   }
 }

@@ -6,5 +6,4 @@ import co.com.activoFijo.entity.ActivoFijo;
 
 public interface ActivoFijoRepository extends CrudRepository<ActivoFijo, Integer> {
 	
-
 }

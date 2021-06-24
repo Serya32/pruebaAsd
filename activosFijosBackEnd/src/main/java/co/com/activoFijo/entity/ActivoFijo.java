@@ -1,7 +1,5 @@
 package co.com.activoFijo.entity;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,8 +7,8 @@ import javax.persistence.Id;
 
 import lombok.Data;
 
-@Entity
 @Data
+@Entity
 public class ActivoFijo {
 
 	@Id
@@ -29,7 +27,7 @@ public class ActivoFijo {
 //	private Long valorCompra;
 //	private Date fechaCompra;
 
-	protected ActivoFijo() {
+	public ActivoFijo() {
 	}
 
 	public ActivoFijo(Integer idTipo, Integer idAsignacion) {

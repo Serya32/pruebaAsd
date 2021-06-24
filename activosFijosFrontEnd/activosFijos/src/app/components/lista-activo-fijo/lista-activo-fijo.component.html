@@ -1,10 +1,11 @@
-<div class="container-fluid">
+<div class="container-fluid text-center">
   
   <mat-table matTableFilter [exampleEntity]="filterEntity"
   [filterType]="filterType" [dataSource]="dataSource" class="mat-elevation-z8">
   
   <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef>
+        Id Activo
       </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
     </ng-container>
@@ -13,7 +14,7 @@
     <ng-container matColumnDef="nombreTipo">
       <mat-header-cell *matHeaderCellDef>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="Captain Name" [(ngModel)]="filterEntity.nombreTipo">
+          <input matInput placeholder="Tipo" [(ngModel)]="filterEntity.nombreTipo">
         </mat-form-field>
       </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.nombreTipo}} </mat-cell>
@@ -30,11 +31,13 @@
   
     <ng-container matColumnDef="fechaFiltro">
       <mat-header-cell *matHeaderCellDef>
-        <mat-form-field appearance="outline">
-          <input  matInput placeholder="fechaFiltro" [(ngModel)]="filterEntity.fechaFiltro">
-        </mat-form-field>
+        <div>
+          <mat-form-field appearance="outline">
+            <input  matInput placeholder="Fecha" [(ngModel)]="filterEntity.fechaFiltro">
+          </mat-form-field>
+        </div>       
       </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.fechaFiltro  | date :'short'}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.fechaFiltro}} </mat-cell>
     </ng-container>
   
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

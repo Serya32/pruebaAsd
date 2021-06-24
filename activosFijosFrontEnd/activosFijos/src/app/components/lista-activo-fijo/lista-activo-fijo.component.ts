@@ -28,6 +28,7 @@ export class ListaActivoFijoComponent implements OnInit {
   ngOnInit(): void {
 
     this.getListaActivos();
+    console.log(this.arrHistorial);
     this.filterEntity = new SpaceCraft();
     // this.filterEntity.captain = new Captain();
     this.filterType = MatTableFilter.ANYWHERE;
@@ -53,7 +54,7 @@ export class ListaActivoFijoComponent implements OnInit {
     activoObject.valorCompra = 22.4; 
     activoObject.fechaCompra = new Date();
     this.date=new Date();
-    activoObject.fechaFiltro = this.datepipe.transform(this.date, 'yyyy-MM-dd');
+    activoObject.fechaFiltro = this.datepipe.transform(this.date, 'dd/MM/yyyy');
 
     const activoObjects: ActivoFijo = new ActivoFijo();
     activoObjects.id = 2
@@ -70,13 +71,10 @@ export class ListaActivoFijoComponent implements OnInit {
     activoObjects.valorCompra = 22.4;
     activoObjects.fechaCompra = new Date();
     this.date=new Date();
-    activoObjects.fechaFiltro = this.datepipe.transform(this.date, 'yyyy-MM-dd');
-
+    activoObjects.fechaFiltro = this.datepipe.transform(this.date, 'dd/MM/yyyy');
     this.arrHistorial.push(activoObject);
     this.arrHistorial.push(activoObjects);
     this.dataSource = new MatTableDataSource(this.arrHistorial);
-    console.log(this.dataSource)
-    console.log(this.arrHistorial)
   }
 
 }
