@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "b158e930-9612-4bad-8a45-342daba274ea",
+		"name": "testActivosFijos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "actualizar activo fijo por id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"alto\":2,\r\n   \"ancho\":2,\r\n   \"asignacion\":\"Persona\",\r\n   \"descripcion\":\"Mesa de Soporte\",\r\n   \"fechaCompra\":\"2021-06-24T20:46:42.050+0000\",\r\n   \"fechaFiltro\":\"24/06/2021\",\r\n   \"id\":1,\r\n   \"idArea\":null,\r\n   \"idCiudad\":null,\r\n   \"idPersona\":1,\r\n   \"idTipo\":1,\r\n   \"largo\":1,\r\n   \"nombre\":\"Activo1\",\r\n   \"nombreTipo\":\"Mesa\",\r\n   \"numeroInternoInventario\":11,\r\n   \"persona\":0,\r\n   \"personaNombre\":\"Cristian\",\r\n   \"peso\":1.1,\r\n   \"serial\":\"A111111\",\r\n   \"valorCompra\": 1\r\n}\r\n  \r\n  ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/saveActivo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"saveActivo"
+					]
+				},
+				"description": "Actualiza la informacion del activo fijo 1"
+			},
+			"response": []
+		},
+		{
+			"name": "listar todos los activos fijos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/getActivosFijos",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getActivosFijos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trae la lista de los tipos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/getTipos",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getTipos"
+					]
+				},
+				"description": "Lista los tipos para seleccionar uno cuando va a crear o atualizar un activo"
+			},
+			"response": []
+		},
+		{
+			"name": "trae la lista de las Areas disponibles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/getAreas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getAreas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trae la lista de las personas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/getPersona",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getPersona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trae las ciudades",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/getCiudad",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getCiudad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trae los datos del activo fijo por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/getActivoFijo/6",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getActivoFijo",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
