@@ -1,5 +1,8 @@
 # pruebaAsd
 - Sistema que permite realizar el manejo de activos Fijos (bienes Materiales) de una empesa, permite crear, actualizar y consultar la lista de activos y sus diferentes caracteristicas. El sistema se compone de dos frentes de desarrollo, back End, Front end y se incluye base de datos H2 data base.
+
+# experiencia de Usuraio
+- El documento de experiencia de usuario, muestra el detalle de los componentes expuestos para la navegación y experiencia del usuario final.
 # Tecnologias implementadas
 ### Back end
 - Spring Boot
