@@ -2,10 +2,10 @@ package co.com.activoFijo.services;
 
 import java.util.List;
 
-import co.com.activoFijo.entity.Persona;
+import co.com.activoFijo.dto.PersonaDTO;
 
 public interface IPersonaService {
 	
-	List<Persona> getPersonas();
+	List<PersonaDTO> getPersona();
 	
 }

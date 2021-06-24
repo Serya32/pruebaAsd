@@ -9,18 +9,17 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Area {
+public class Ciudad {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private Integer idCiudad;
 	private String nombre;
 	
-	public Area() {
+	public Ciudad() {
 	}
 
-	public Area(Integer idCiudad, String nombre) {
-		this.idCiudad = idCiudad;
+	public Ciudad(String nombre) {
 		this.nombre = nombre;
 	}
+
 }

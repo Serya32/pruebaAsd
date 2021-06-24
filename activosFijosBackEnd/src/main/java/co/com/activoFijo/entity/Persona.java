@@ -12,9 +12,17 @@ import lombok.Data;
 public class Persona {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private Integer nombres;
-	private Integer apellidos;
+	private String nombres;
+	private String apellidos;
+	
+	public Persona() {
+	}
+
+	public Persona(String nombres, String apellidos) {
+		this.nombres = nombres;
+		this.apellidos = apellidos;
+	}
 
 }

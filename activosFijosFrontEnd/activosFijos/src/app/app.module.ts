@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListaActivoFijoComponent } from './components/lista-activo-fijo/lista-activo-fijo.component';
@@ -21,6 +21,7 @@ import { CrearActivoFijoComponent } from './components/crear-activo-fijo/crear-a
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSelectModule,

@@ -3,9 +3,7 @@ package co.com.activoFijo.dto;
 import lombok.Data;
 
 @Data
-public class PersonaDTO {
-	
+public class CiudadDTO {
 	private Integer id;
-	private String nombres;
-	private String apellidos;
+	private String nombre;
 }

@@ -6,9 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 import co.com.activoFijo.dto.AreaDTO;
-import co.com.activoFijo.dto.TipoDTO;
 import co.com.activoFijo.entity.Area;
-import co.com.activoFijo.entity.Tipo;
 
 @Mapper(componentModel = "spring")
 public interface AreaMapper {

@@ -11,27 +11,25 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.com.activoFijo.dto.PersonaDTO;
+import co.com.activoFijo.dto.CiudadDTO;
 import co.com.activoFijo.entity.Ciudad;
-import co.com.activoFijo.services.IPersonaService;
+import co.com.activoFijo.services.ICiudadService;
 
-@RestController("persona")
+@RestController("ciudad")
 @CrossOrigin(origins = "*")
-public class PersonaController {
-
+public class CiudadController {
 	private static final Logger logger = LoggerFactory.getLogger(Ciudad.class);
 
 	@Autowired
-	IPersonaService personaService;
-
-	@GetMapping(value = {"/api/getPersona"}, produces = "application/json")
-	public ResponseEntity<List<PersonaDTO>> getPersona() {
-		logger.info("getPersona");
+	ICiudadService ciudadService;
+	
+	@GetMapping(value = {"/api/getCiudad"}, produces = "application/json")
+	public ResponseEntity<List<CiudadDTO>> getCiudad(	) {
+		logger.info("getCiudad");
 		try {
-			return new ResponseEntity<>(personaService.getPersona(), HttpStatus.OK);
+			return new ResponseEntity<>(ciudadService.getCiudad(), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
 }
