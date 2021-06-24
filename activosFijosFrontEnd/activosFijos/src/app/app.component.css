@@ -1,0 +1,7 @@
+::ng-deep .mat-form-field-infix{
+    width: 100px !important;
+  }
+  body{
+      background-image: url('../assets/images/descarga.png') !important;
+      background-repeat: no-repeat !important;
+  }

@@ -27,3 +27,7 @@
     color: #626366;
     text-align: left;
   }
+
+  ::ng-deep .mat-form-field-infix{
+    width: 100px !important;
+  }

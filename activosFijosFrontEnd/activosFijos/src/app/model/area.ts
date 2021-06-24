@@ -1,5 +1,5 @@
 export class Area {
-    idArea: number;
+    id: number;
     idCiudad: number;
-    nombreArea: string;
+    nombre: string;
  }

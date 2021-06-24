@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-06-23T21:05:01-0500",
+    date = "2021-06-24T02:18:48-0500",
     comments = "version: 1.4.2.Final, compiler: Eclipse JDT (IDE) 3.19.0.v20190903-0936, environment: Java 1.8.0_171 (Oracle Corporation)"
 )
 @Component
@@ -23,9 +23,21 @@ public class ActivoFijoMapperImpl implements ActivoFijoMapper {
 
         ActivoFijo activoFijo = new ActivoFijo();
 
+        activoFijo.setAlto( activoFijoDTO.getAlto() );
+        activoFijo.setAncho( activoFijoDTO.getAncho() );
+        activoFijo.setDescripcion( activoFijoDTO.getDescripcion() );
+        activoFijo.setFechaCompra( activoFijoDTO.getFechaCompra() );
         activoFijo.setId( activoFijoDTO.getId() );
-        activoFijo.setIdAsignacion( activoFijoDTO.getIdAsignacion() );
+        activoFijo.setIdArea( activoFijoDTO.getIdArea() );
+        activoFijo.setIdCiudad( activoFijoDTO.getIdCiudad() );
+        activoFijo.setIdPersona( activoFijoDTO.getIdPersona() );
         activoFijo.setIdTipo( activoFijoDTO.getIdTipo() );
+        activoFijo.setLargo( activoFijoDTO.getLargo() );
+        activoFijo.setNombre( activoFijoDTO.getNombre() );
+        activoFijo.setNumeroInternoInventario( activoFijoDTO.getNumeroInternoInventario() );
+        activoFijo.setPeso( activoFijoDTO.getPeso() );
+        activoFijo.setSerial( activoFijoDTO.getSerial() );
+        activoFijo.setValorCompra( activoFijoDTO.getValorCompra() );
 
         return activoFijo;
     }
@@ -38,9 +50,21 @@ public class ActivoFijoMapperImpl implements ActivoFijoMapper {
 
         ActivoFijoDTO activoFijoDTO = new ActivoFijoDTO();
 
+        activoFijoDTO.setAlto( activoFijo.getAlto() );
+        activoFijoDTO.setAncho( activoFijo.getAncho() );
+        activoFijoDTO.setDescripcion( activoFijo.getDescripcion() );
+        activoFijoDTO.setFechaCompra( activoFijo.getFechaCompra() );
         activoFijoDTO.setId( activoFijo.getId() );
-        activoFijoDTO.setIdAsignacion( activoFijo.getIdAsignacion() );
+        activoFijoDTO.setIdArea( activoFijo.getIdArea() );
+        activoFijoDTO.setIdCiudad( activoFijo.getIdCiudad() );
+        activoFijoDTO.setIdPersona( activoFijo.getIdPersona() );
         activoFijoDTO.setIdTipo( activoFijo.getIdTipo() );
+        activoFijoDTO.setLargo( activoFijo.getLargo() );
+        activoFijoDTO.setNombre( activoFijo.getNombre() );
+        activoFijoDTO.setNumeroInternoInventario( activoFijo.getNumeroInternoInventario() );
+        activoFijoDTO.setPeso( activoFijo.getPeso() );
+        activoFijoDTO.setSerial( activoFijo.getSerial() );
+        activoFijoDTO.setValorCompra( activoFijo.getValorCompra() );
 
         return activoFijoDTO;
     }

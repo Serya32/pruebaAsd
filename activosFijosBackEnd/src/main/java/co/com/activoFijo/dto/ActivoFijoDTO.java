@@ -10,7 +10,9 @@ import java.util.Date;
 public class ActivoFijoDTO {
 	private Integer id;
 	private Integer idTipo;
-	private Integer idAsignacion;
+	private Integer idArea;
+	private Integer idPersona;
+	private Integer idCiudad;
 	private String nombre;
 	private String descripcion;
 	private String serial;

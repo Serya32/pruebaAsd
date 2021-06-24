@@ -1,4 +1,4 @@
 export class Persona {
-    idPersona: number;
-    nombrePersona: string;
+    id: number;
+    nombres: string;
  }

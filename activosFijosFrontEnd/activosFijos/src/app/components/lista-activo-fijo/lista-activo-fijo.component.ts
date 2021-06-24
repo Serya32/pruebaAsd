@@ -1,8 +1,14 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivoFijo } from 'src/app/model/activoFijo';
 import { MatTableFilter } from 'mat-table-filter';
 import { DatePipe } from '@angular/common';
+import { TraerInfoService } from 'src/app/service/traer-info.service';
+import { Area } from 'src/app/model/area';
+import { Tipo } from 'src/app/model/tipo';
+import { Ciudad } from 'src/app/model/ciudad';
+import { Persona } from 'src/app/model/persona';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-activo-fijo',
@@ -17,64 +23,115 @@ export class ListaActivoFijoComponent implements OnInit {
   filterType: MatTableFilter;
   dataSource;
   date;
+  tipoActivo: Tipo[] = [];
+  areaAginada: Area[] = [];
+  ciudadArea: Ciudad[] = [];
+  arrayPersona: Persona[] = [];
 
 
-  displayedColumns = ['id', 'nombreTipo', 'fechaFiltro', 'serial'];
-  // dataSource = new MatTableDataSource();
-  // 'serial', 'peso','alto','ancho', 'largo', 'valor Compra', 'fhecha Compra', 'numero interno'
+  displayedColumns = ['id', 'nombre', 'nombreTipo', 'fechaFiltro', 'serial', 'peso', 'alto', 'ancho', 'asignado', 'actualizar'];
   arrHistorial: ActivoFijo[] = [];
-  constructor(public datepipe: DatePipe) { }
+  constructor(public datepipe: DatePipe, private traerInfoService: TraerInfoService,
+    private router: Router,
+    ) { }
 
   ngOnInit(): void {
-
+    if (localStorage.getItem('usuarioSucursalId') !== null && localStorage.getItem('usuarioSucursalId') !== undefined) {
+      localStorage.removeItem('usuarioSucursalId');
+    }
+    
     this.getListaActivos();
-    console.log(this.arrHistorial);
     this.filterEntity = new SpaceCraft();
-    // this.filterEntity.captain = new Captain();
     this.filterType = MatTableFilter.ANYWHERE;
     this.dataSource = new MatTableDataSource(this.arrHistorial);
  
  
   }
-  
+
   getListaActivos(){
+    this.traerInfoService.getActivosFijos().subscribe(response=>{
+      
+      this.arrHistorial = response
+      this.arrHistorial.forEach(element => {
+        let fecha = new Date(element.fechaCompra).toISOString().substring(0, new Date(element.fechaCompra).toISOString().length - 1);
+        element.fechaFiltro = this.datepipe.transform(fecha, 'dd/MM/yyyy');
+      });
+      this.tipo();
+      this.areaSeleccionada();
+      this.arregloPersona();
+      this.getCiudad();
+      console.log(this.arrHistorial )
+      this.dataSource = new MatTableDataSource(this.arrHistorial); 
+      });
+      
+  }
 
-    const activoObject: ActivoFijo = new ActivoFijo();
-    activoObject.id = 1
-    activoObject.idAsignacion = 2
-    activoObject.nombreTipo = 'hola'
-    activoObject.nombre = 'mesita';
-    activoObject.descripcion = 'mesa de escritorio';
-    activoObject.serial = '23333333Hs';
-    activoObject.numeroInternoInventario = 22;
-    activoObject.peso = 22.2;
-    activoObject.alto = 21.1;
-    activoObject.ancho = 21.2;
-    activoObject.largo = 22.3;
-    activoObject.valorCompra = 22.4; 
-    activoObject.fechaCompra = new Date();
-    this.date=new Date();
-    activoObject.fechaFiltro = this.datepipe.transform(this.date, 'dd/MM/yyyy');
 
-    const activoObjects: ActivoFijo = new ActivoFijo();
-    activoObjects.id = 2
-    activoObjects.idAsignacion = 2
-    activoObjects.nombreTipo = 'perro'
-    activoObjects.nombre = 'messa';
-    activoObjects.descripcion = 'mesa de escritorio';
-    activoObjects.serial = '33333333Hs';
-    activoObjects.numeroInternoInventario = 22;
-    activoObjects.peso = 22.2;
-    activoObjects.alto = 21.1;
-    activoObjects.ancho = 21.2;
-    activoObjects.largo = 22.3;
-    activoObjects.valorCompra = 22.4;
-    activoObjects.fechaCompra = new Date();
-    this.date=new Date();
-    activoObjects.fechaFiltro = this.datepipe.transform(this.date, 'dd/MM/yyyy');
-    this.arrHistorial.push(activoObject);
-    this.arrHistorial.push(activoObjects);
-    this.dataSource = new MatTableDataSource(this.arrHistorial);
+  tipo(){
+    this.traerInfoService.getTipos().subscribe(response=>{
+      this.tipoActivo = response;
+      this.arrHistorial.forEach(element => {
+      this.tipoActivo.forEach(tipo => {
+        if (element.idTipo === tipo.id) {
+          element.nombreTipo = tipo.nombre;
+        }
+        if (element.idArea !== null) {
+          element.area = 1;
+          element.asignacion = 'Area';
+        } else if (element.idPersona !== null){
+          element.persona = 0;
+          element.asignacion = 'Persona';
+
+        }
+      });
+    });
+    });
+  }
+
+  areaSeleccionada(){
+    this.traerInfoService.getArea().subscribe(response=>{
+      this.areaAginada = response;
+      this.arrHistorial.forEach(element => {
+        this.areaAginada.forEach(area => {
+          if (element.idArea === area.id) {
+            element.areaNombre = area.nombre;
+          }
+        });
+      });
+    })
+  }
+
+  arregloPersona(){
+    this.traerInfoService.getPersona().subscribe(response =>{
+      this.arrayPersona = response;
+      this.arrHistorial.forEach(element => {
+        this.arrayPersona.forEach(persona => {
+          if (element.idPersona === persona.id) {
+            element.personaNombre = persona.nombres;
+          }
+        });
+      });
+    })
+  }
+
+  getCiudad(){
+    this.ciudadArea = [];  
+    this.traerInfoService.getCiudades().subscribe(response=>{ 
+        this.ciudadArea = response;
+        this.arrHistorial.forEach(element => {
+          this.ciudadArea.forEach(ciudad => {
+            if (element.idCiudad === ciudad.id) {
+              element.ciudadNombre = ciudad.nombre;
+            }
+          });
+        });
+    })
+  }
+
+  actifoFijoById(id: number){
+    localStorage.setItem('usuarioSucursalId', JSON.stringify(id));
+    this.router.navigate(['/crear']);
+    console.log(localStorage.getItem('usuarioSucursalId'))
   }
 
 }

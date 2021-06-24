@@ -23,4 +23,5 @@ export class ActivoFijo {
 	 idArea: number;
 	 idCiudad: number;
 	 ciudadNombre: string;
+	 asignacion: string;
   }

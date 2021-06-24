@@ -1,5 +1,7 @@
 package co.com.activoFijo;
 
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -43,9 +45,20 @@ public class ActivoFijo {
 	}
 
 	private void crearActivosFijos(ActivoFijoRepository repository) {
-		repository.save(new co.com.activoFijo.entity.ActivoFijo(1, 11));
-		repository.save(new co.com.activoFijo.entity.ActivoFijo(2, 11));
-		repository.save(new co.com.activoFijo.entity.ActivoFijo(3, 11));
+		repository.save(new co.com.activoFijo.entity.ActivoFijo(1, null, 1, null,"Activo1","Mesa de Soporte","A111111", 11l, 
+				1.1, 2.0,2.0,1.0,1l,new Date()));
+		
+		repository.save(new co.com.activoFijo.entity.ActivoFijo(2, 2, null, 5,"Activo2","Silla de Soporte","A222222", 
+				12l, 2.1, 3.0, 2.0, 1.0, 1l, new Date("Jun 12 2011")));
+		
+		repository.save(new co.com.activoFijo.entity.ActivoFijo(3, null, 3, null,"Activo3","Base para portatil","B333333", 
+				13l, 3.1, 3.0, 3.0, 3.0, 3l,new Date("Jul 1 2011")));
+		
+		repository.save(new co.com.activoFijo.entity.ActivoFijo(2, 1, null, 2,"Activo4","Lapiz","C444444", 
+				14l, 4.1, 2.0, 2.0, 1.0, 1l, new Date("Jul 12 2011")));
+		
+		
+
 	}
 	private void crearPersonas(PersonaRepository personaRepository) {
 		personaRepository.save(new Persona( "Cristian", "Torres"));
