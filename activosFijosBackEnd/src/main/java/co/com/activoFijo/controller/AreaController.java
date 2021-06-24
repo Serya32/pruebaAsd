@@ -12,16 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.com.activoFijo.dto.AreaDTO;
-import co.com.activoFijo.dto.TipoDTO;
-import co.com.activoFijo.entity.ActivoFijo;
+import co.com.activoFijo.entity.Area;
 import co.com.activoFijo.services.IAreaService;
-import co.com.activoFijo.services.ITipoService;
 
 @RestController("area")
 @CrossOrigin(origins = "*")
 public class AreaController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(ActivoFijo.class);
+	private static final Logger logger = LoggerFactory.getLogger(Area.class);
 	
 	@Autowired
 	IAreaService areaService;

@@ -11,15 +11,14 @@ import lombok.Data;
 @Entity
 public class Tipo {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nombre;
 	
 	public Tipo() {
 	}
 
-	public Tipo(Integer String, String nombre) {
-		this.id = String;
+	public Tipo(String nombre) {
 		this.nombre = nombre;
 	}
 }

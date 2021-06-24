@@ -8,11 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.com.activoFijo.dto.AreaDTO;
-import co.com.activoFijo.dto.TipoDTO;
 import co.com.activoFijo.entity.Area;
-import co.com.activoFijo.entity.Tipo;
 import co.com.activoFijo.mapper.AreaMapper;
-import co.com.activoFijo.mapper.TipoMapper;
 import co.com.activoFijo.repository.AreaRepository;
 import co.com.activoFijo.services.IAreaService;
 
