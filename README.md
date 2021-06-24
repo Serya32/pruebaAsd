@@ -70,4 +70,4 @@ git clone https://github.com/Serya32/pruebaAsd.git
  http://127.0.0.1:4200/
 ``` 
 
-![alt text](https://github.com/Serya32/pruebaAsd/main/captura.png?raw=true)
+![alt text](https://github.com/Serya32/pruebaAsd/main/Captura.png?raw=true)
