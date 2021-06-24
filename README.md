@@ -61,6 +61,10 @@ git clone https://github.com/Serya32/pruebaAsd.git
 ```
  ng build --configuration production --base-href=/activos-fijos/ --outputHashing=all
 ``` 
+- Esto genera una carpeta llamada dist dentro de la ruta pruebaAsd/activosFijosFrontEnd/activosFijos/ ingresamos a esta ruta por medio de la linea de comando y jecuntamos el siguiente comando
+```
+jar -cvf activoFijo.war *
+```
 ### Front End VSCode
 - Si desea ejecutarlo localmente, con el Ide (visual estudio code), abra el proyecto front end en la ruta
 ```
