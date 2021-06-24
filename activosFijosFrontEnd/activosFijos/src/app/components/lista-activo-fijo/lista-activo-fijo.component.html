@@ -71,11 +71,11 @@
       </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.asignacion}} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="actualizar">
+    <ng-container class="text-center" matColumnDef="actualizar">
       <mat-header-cell *matHeaderCellDef>
         Actualizar Activo
       </mat-header-cell>
-      <mat-cell *matCellDef="let element"> <button (click)="actifoFijoById(element.id)"></button> </mat-cell>
+      <mat-cell *matCellDef="let element"> <button class="btn btn-secondary text-center" (click)="actifoFijoById(element.id)">Actualizar</button> </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

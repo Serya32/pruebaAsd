@@ -7,13 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
-  title = 'activosFijos';
+  mostrarMensaje = true;
+
   constructor(
     private router: Router,
     ) {}
 
-  routes(route: string){
+    routes(route: string){
     if (route === 'listarActivo') {
       this.router.navigate(['listarActivo']);
     } else if (route === 'crear') {

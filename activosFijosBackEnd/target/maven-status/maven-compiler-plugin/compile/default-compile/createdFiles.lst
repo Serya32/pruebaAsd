@@ -1,0 +1,16 @@
+co\com\activoFijo\dto\PersonaDTO.class
+co\com\activoFijo\services\IPersonaService.class
+co\com\activoFijo\services\IActivoFijoService.class
+co\com\activoFijo\mapper\CiudadMapperImpl.class
+co\com\activoFijo\services\ICiudadService.class
+co\com\activoFijo\dto\ActivoFijoDTO.class
+co\com\activoFijo\services\ITipoService.class
+co\com\activoFijo\services\IAreaService.class
+co\com\activoFijo\mapper\AreaMapperImpl.class
+co\com\activoFijo\dto\TipoDTO.class
+co\com\activoFijo\dto\CiudadDTO.class
+co\com\activoFijo\mapper\PersonaMapperImpl.class
+co\com\activoFijo\dto\AreaDTO.class
+co\com\activoFijo\mapper\TipoMapperImpl.class
+co\com\activoFijo\exception\SaveException.class
+co\com\activoFijo\mapper\ActivoFijoMapperImpl.class

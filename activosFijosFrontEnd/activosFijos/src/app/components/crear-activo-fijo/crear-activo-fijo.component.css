@@ -1,3 +1,6 @@
 .w-5{
     width: 7rem !important;
 }
+form{
+    text-align: -webkit-center !important;
+}
