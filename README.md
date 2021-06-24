@@ -23,6 +23,8 @@ Para correr/ejecutar este proyecto, necesita tener instalado y configurado:
 - Node y Npm
 - Angular Cli 10.2.0
 - Un IDE para poder editar el código. En este caso se utilizo Visual Studio Code, pero se puede utilizar cualquier otro.
+### Para ejecutar las pruebas de los servicios
+- Postman
 ## Despliegue Local
 
 ### Back End
@@ -72,5 +74,11 @@ git clone https://github.com/Serya32/pruebaAsd.git
 ```
  http://127.0.0.1:4200/
 ``` 
+## Importar pruebas Postman
+- Descargue el archivo testActivosFijos.postman_collection.json
+- Inicie el aplicativo postman
+- Seleccione la opción import
+- Seleccione la opción file
+- Busque y seleccione el archivo testActivosFijos.postman_collection.json
 ## Model DB
 ![alt text](https://github.com/Serya32/pruebaAsd/blob/main/modelDB.PNG?raw=true)
