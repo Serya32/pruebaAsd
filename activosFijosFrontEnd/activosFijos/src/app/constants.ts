@@ -6,7 +6,7 @@ export const CODIGO_AREA = 1;
 export const CODIGO_PERSONA = 0;
 
 // Constante con la Dirección IP del Servidor
-const PATH_SERVER = 'http://localhost:8080';
+const PATH_SERVER = 'http://127.0.0.1:8080';
 
 export const PATH_GET_PERSONA = PATH_SERVER+'/api/getPersona';
 export const PATH_GET_CIUDAD = PATH_SERVER+'/api/getCiudad';
