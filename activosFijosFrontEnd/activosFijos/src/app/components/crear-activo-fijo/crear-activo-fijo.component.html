@@ -1,66 +1,52 @@
 
 <div class="container-fluid">
     <form [formGroup]="formCrearActivo" class="form-popup p-3 mb-2" novalidate>
-    
-    
         <div class="input-group mb-3 w-50">
             <span class="input-group-text w-5" id="inputGroup-sizing-default">Nombre</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
             name="nombreActivo"
             formControlName="nombreActivo">
           </div>
-    
-    
           <div class="input-group mb-3 w-50">
             <span class="input-group-text w-5" id="inputGroup-sizing-default">Descripcion</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
             name="descripcion"
             formControlName="descripcion">
           </div>
-    
           <select class="form-select w-50  mb-3" aria-placeholder="Hola" aria-label="Default select example" (change)="getTipo($event.target.value)" name="tipoNombre" id="tipoNombre" formControlName="tipoNombre" >
             <option value="" selected disabled>Seleccione Tipo</option>
             <option *ngFor="let dpto of tipoActivo" [value]="dpto.idTipo">{{dpto.nombreTipo}} </option>
           </select>
-    
-    
           <div class="input-group mb-3 w-50">
             <span class="input-group-text w-5" id="inputGroup-sizing-default">Peso</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
             name="peso"
             formControlName="peso">
           </div>
-    
-          
           <div class="input-group mb-3 w-50">
             <span class="input-group-text w-5" id="inputGroup-sizing-default">Alto</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
             name="alto"
             formControlName="alto">
-          </div>
-    
-          
+          </div>  
           <div class="input-group mb-3 w-50">
             <span class="input-group-text w-5" id="inputGroup-sizing-default">Largo</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
             name="largo"
             formControlName="largo">
           </div>
-    
           <div class="input-group mb-3 w-50">
             <span class="input-group-text w-5" id="inputGroup-sizing-default">Ancho</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
             name="ancho"
             formControlName="ancho">
           </div>
-    
           <div class="input-group mb-3 w-50">
             <span class="input-group-text " id="inputGroup-sizing-default">Número de Inventario</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
             name="numInventario"
             formControlName="numInventario">
           </div>
-    
           <div class="input-group mb-3 w-50">
             <span class="input-group-text" id="inputGroup-sizing-default">Valor de Compra</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
@@ -69,17 +55,14 @@
           </div>
           <div class="input-group mb-3 w-50">
             <span class="input-group-text" id="inputGroup-sizing-default">Fecha de Compra</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+            <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
             name="fechaCompra"
             formControlName="fechaCompra">
           </div>
-    
           <hr class="my-4">
-          <p>Asignar Activo</p>
-          
-    
+          <p>Asignar Activo</p> 
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" (change)="getArea(0)" name="flexRadioDefault" id="persona" checked>
+            <input class="form-check-input" type="radio" (change)="getArea(0)" name="flexRadioDefault" id="persona">
             <label class="form-check-label" for="persona">
               Persona
             </label>
@@ -90,14 +73,11 @@
                 Area
             </label>
           </div>
-    
-    
           <div *ngIf="showArea">
               <select class="form-select w-50  mb-3" aria-placeholder="Hola" aria-label="Default select example" (change)="getCiudad($event.target.value)" name="area" formControlName="area" >
                 <option value="" selected disabled>Seleccione Tipo</option>
                 <option *ngFor="let dpto of areaAginada" [value]="dpto.idArea">{{dpto.nombreArea}} </option>
               </select>
-        
               <select class="form-select w-50  mb-3" aria-placeholder="Hola" aria-label="Default select example" (change)="setCiudad($event.target.value)" name="ciudad" id="ciudad" formControlName="ciudad" >
                 <option value="" selected disabled>Seleccione Tipo</option>
                 <option *ngFor="let dpto of selectCiudad" [value]="dpto.idCiudad">{{dpto.nombreCiudad}} </option>
@@ -105,13 +85,17 @@
           </div>
     
           <div *ngIf="!showArea">
-            <select class="form-select w-50  mb-3" aria-placeholder="Hola" aria-label="Default select example" (change)="setCiudad($event.target.value)" name="personaSelect" id="personaSelect" formControlName="personaSelect" >
+            <select class="form-select w-50  mb-3" aria-placeholder="Hola" aria-label="Default select example" (change)="getPersona($event.target.value)" name="personaSelect" id="personaSelect" formControlName="personaSelect" >
                 <option value="" selected disabled>Seleccione Tipo</option>
                 <option *ngFor="let dpto of arrayPersona" [value]="dpto.idPersona">{{dpto.nombrePersona}} </option>
               </select>
         </div>
-    
-    </form>
 
+        <div class="pb-2 center">
+            <button type="submit" class="btn btn-primary btn-enter" (click)="getDatos()" >
+              Ingresar
+            </button>
+          </div>
+    </form>
 </div>
 

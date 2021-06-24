@@ -16,7 +16,11 @@ export class ActivoFijo {
 	 fechaCompra: Date;
      fechaFiltro: string;
 	 persona: number;
-	 personaSelect: string;
-	 idArea: string;
-	 idCiudad: string;
+	 idPersona: number;
+	 personaNombre: string;
+	 area: number;
+	 areaNombre: string;
+	 idArea: number;
+	 idCiudad: number;
+	 ciudadNombre: string;
   }
